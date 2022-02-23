@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: password
+  host: db
+
+development:
+  <<: *default
+  database: rails_react_docker_development
+
+test:
+  <<: *default
+  database: rails_react_docker_test
+
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
